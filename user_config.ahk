@@ -47,7 +47,7 @@
 ;#f::toggleMaximize()
 
 ; WSL -- create shortcut by dragging from start menu (can't be from a search result)
-#Enter::Run, C:\window-mover.git\Debian GNU-Linux
+#Enter::Run, explorer.exe shell:AppsFolder\Microsoft.WindowsTerminal_8wekyb3d8bbwe!App
 
 ; PowerShell
 #+Enter::Run, powershell

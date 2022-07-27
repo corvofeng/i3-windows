@@ -122,6 +122,9 @@ _switchDesktopToTarget(targetDesktop)
     global CurrentDesktop, DesktopCount
     
     ; Don't attempt to switch to an invalid desktop
+    ; OutputDebug, [invalid] target: %targetDesktop% current: %CurrentDesktop%
+    ; OutputDebug, %A_Now%: Because the window "%TargetWindowTitle%" did not exist, the process was aborted.
+    ; MsgBox, Get current desotok %CurrentDesktop% to %targetDesktop%
     if (targetDesktop < 1) {
         OutputDebug, [invalid] target: %targetDesktop% current: %CurrentDesktop%
         return
@@ -139,6 +142,7 @@ _switchDesktopToTarget(targetDesktop)
     DllCall(GoToDesktopNumberProc, UInt, targetDesktop - 1)
 
     ; Makes the WinActivate fix less intrusive
+    CurrentDesktop = %targetDesktop%
     Sleep, 50
     focusTheForemostWindow(targetDesktop)
 }
